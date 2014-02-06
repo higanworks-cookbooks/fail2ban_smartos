@@ -1,45 +1,20 @@
 fail2ban_smartos Cookbook
 ==========================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+Instal fail2ban to smartos and add simple rule for ssh.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
 
-e.g.
-#### packages
-- `toaster` - fail2ban_smartos needs toaster to brown your bagel.
 
 Attributes
 ----------
 TODO: List you cookbook attributes here.
 
-e.g.
-#### fail2ban_smartos::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['fail2ban_smartos2']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
 
 Usage
 -----
-#### fail2ban_smartos::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
 Just include `fail2ban_smartos` in your node's `run_list`:
 
 ```json
@@ -51,11 +26,22 @@ Just include `fail2ban_smartos` in your node's `run_list`:
 }
 ```
 
+Install fail2ban and enable ssh rule below:
+
+```
+[ssh-ipfilter]
+
+enabled = true
+maxretry = 8
+filter = sshd
+action = ipfilter
+logpath = /var/log/authlog
+```
+
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
-e.g.
+
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
@@ -65,4 +51,5 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+
+Authors:  Sawanobori Yukihiko(HiganWorks LLC)
