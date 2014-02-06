@@ -15,3 +15,11 @@ suites:
   use_sudo: false
   run_list: [ 'fail2ban_smartos::default' ]
   attributes:
+- name: ipfilter
+  use_sudo: false
+  run_list: [ 'fail2ban_smartos::ipfilter' ]
+  attributes:
+- name: tcp_wrapper
+  use_sudo: false
+  run_list: [ 'fail2ban_smartos::tcp_wrapper' ]
+  attributes:

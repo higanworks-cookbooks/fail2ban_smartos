@@ -1,0 +1,7 @@
+[ssh-tcp_wrapper]
+
+enabled = true
+maxretry = <%= node[:fail2ban_smartos][:example][:ssh_maxretry].to_s %>
+filter = sshd
+action = hostsdeny[daemon_list=sshd]
+logpath = <%= node[:fail2ban_smartos][:example][:ssh_log_file] %>

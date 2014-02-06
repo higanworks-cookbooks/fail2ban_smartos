@@ -21,6 +21,7 @@ bash 'install_fail2ban' do
   mkdir -p /var/svc/method
   cp files/solaris-svc-fail2ban /var/svc/method/svc-fail2ban
   chmod +x /var/svc/method/svc-fail2ban
+  sleep 15
   EOH
 end
 
@@ -28,12 +29,5 @@ end
 service 'fail2ban' do
   action [:enable]
   reload_command '/opt/local/bin/fail2ban-client reload'
-end
-
-
-template '/etc/fail2ban/jail.local' do
-  source 'jail.local.erb'
-  action :create
-  notifies :reload, 'service[fail2ban]'
 end
 
