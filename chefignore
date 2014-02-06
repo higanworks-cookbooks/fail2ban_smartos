@@ -1,0 +1,5 @@
+.bundle/
+*.swp
+.kitchen.yml
+.kitchen..local.yml
+ Gemfile.lock

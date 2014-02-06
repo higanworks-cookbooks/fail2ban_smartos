@@ -1,0 +1,7 @@
+[ssh-ipfilter]
+
+enabled = true
+maxretry = <%= node[:fail2ban_smartos][:example][:ssh_maxretry].to_s %>
+filter = sshd
+action = ipfilter
+logpath = <%= node[:fail2ban_smartos][:example][:ssh_log_file] %>

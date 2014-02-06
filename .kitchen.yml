@@ -1,0 +1,17 @@
+---
+driver_plugin: zcloudjp
+driver_config:
+  api_key: REPLACE_IT
+
+platforms:
+- name: sm-base64
+  driver_config:
+    dataset: "sdc:sdc:base64:13.1.0"
+    package: Small_1GB
+    with_gcc: true
+
+suites:
+- name: default
+  use_sudo: false
+  run_list: [ 'fail2ban_smartos::default' ]
+  attributes:
