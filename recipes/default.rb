@@ -2,7 +2,7 @@ git "#{Chef::Config[:file_cache_path]}/fail2ban_smartos" do
   repository node[:fail2ban_smartos][:git_repo]
   reference node[:fail2ban_smartos][:git_ref]
   action :sync
-  notifies :run, 'bash[install_fail2ban]'
+  notifies :run, 'bash[install_fail2ban]', :immediately
 end
 
 file '/etc/fail2ban.conf' do
@@ -21,7 +21,6 @@ bash 'install_fail2ban' do
   mkdir -p /var/svc/method
   cp files/solaris-svc-fail2ban /var/svc/method/svc-fail2ban
   chmod +x /var/svc/method/svc-fail2ban
-  sleep 15
   EOH
 end
 

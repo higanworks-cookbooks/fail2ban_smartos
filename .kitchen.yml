@@ -8,7 +8,10 @@ platforms:
   driver_config:
     dataset: "sdc:sdc:base64:13.1.0"
     package: Small_1GB
+    require_chef_omnibus: false
     with_gcc: true
+  busser:
+    ruby_bindir: /opt/local/bin
 
 suites:
 - name: default
@@ -23,3 +26,6 @@ suites:
   use_sudo: false
   run_list: [ 'fail2ban_smartos::tcp_wrapper' ]
   attributes:
+
+busser:
+  sudo: true
