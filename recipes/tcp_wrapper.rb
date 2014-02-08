@@ -10,9 +10,15 @@ bash 'enable_tcpwrepper' do
   only_if 'inetadm -p | grep tcp_wrappers=FALSE'
 end
 
+execute 'sleep 3' do
+  ## need wait when inetadm policy has changed..?
+  action :nothing
+end
+
 template '/etc/fail2ban/jail.local' do
   source 'jail.local_tcpr.erb'
   action :create
+  notifies :run,    'execute[sleep 3]', :immediately
   notifies :reload, 'service[fail2ban]'
 end
 
