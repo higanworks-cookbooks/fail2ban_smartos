@@ -1,7 +1,9 @@
 ---
 driver_plugin: zcloudjp
 driver_config:
-  api_key: REPLACE_IT
+  api_key: <%= ENV['ZCLOUD_APIKEY']  %>
+  ssh_key: <%= ENV['ZCLOUD_SSHKEY_PATH']  %>
+  user: root
 
 platforms:
 - name: sm-base64
