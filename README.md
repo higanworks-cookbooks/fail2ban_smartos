@@ -12,6 +12,25 @@ Attributes
 TODO: List you cookbook attributes here.
 
 
+Easy Setup with Chef-Client Local Mode
+----
+
+```
+mkdir -p localmode/cookbooks
+git clone https://github.com/higanworks-cookbooks/fail2ban_smartos.git localmode/cookbooks/fail2ban_smartos
+
+cd localmode
+chef-client -z -o 'fail2ban_smartos::tcp_wrapper'
+
+-- snip --
+
+Recipe: fail2ban_smartos::default
+  * service[fail2ban] action reload
+    - reload service service[fail2ban]
+```
+
+
+
 Usage
 -----
 
