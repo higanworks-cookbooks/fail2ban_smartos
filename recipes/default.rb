@@ -13,7 +13,7 @@ end
 bash 'install_fail2ban' do
   action :nothing
   flags '-ex'
-  environment "PATH" => 'opt/local/bin:/opt/local/sbin'
+  environment "PATH" => '/usr/local/sbin:/usr/local/bin:/opt/local/sbin:/opt/local/bin:/usr/sbin:/usr/bin:/sbin'
   cwd "#{Chef::Config[:file_cache_path]}/fail2ban_smartos"
   code <<-EOH
   python setup.py install
